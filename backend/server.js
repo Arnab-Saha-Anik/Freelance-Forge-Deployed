@@ -19,7 +19,7 @@ connectDB();
 
 const app = express();
 
-app.use("/payments/webhook", express.raw({ type: "application/json" }));
+app.use("https://freelance-forge-deployed.vercel.app/payments/webhook", express.raw({ type: "application/json" }));
 
 app.use(cors()); 
 app.use(express.json());
