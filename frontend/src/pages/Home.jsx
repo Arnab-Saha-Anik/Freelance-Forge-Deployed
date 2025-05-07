@@ -12,7 +12,7 @@ const HomePage = () => {
     
     const fetchFeaturedProjects = async () => {
       try {
-        const response = await fetch("http://localhost:10000/projects/featured");
+        const response = await fetch("https://freelance-forge-deployed.onrender.com/projects/featured");
         if (response.ok) {
           const data = await response.json();
           setFeaturedProjects(data);

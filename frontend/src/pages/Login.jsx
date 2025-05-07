@@ -36,7 +36,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:10000/users/login", {
+      const response = await axios.post("https://freelance-forge-deployed.onrender.com/users/login", {
         email,
         password,
         role,
