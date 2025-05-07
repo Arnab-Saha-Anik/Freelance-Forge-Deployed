@@ -12,7 +12,7 @@ const HomePage = () => {
     
     const fetchFeaturedProjects = async () => {
       try {
-        const response = await fetch("https://freelance-forge-deployed.vercel.app//projects/featured");
+        const response = await fetch("https://freelance-forge-deployed.vercel.app/projects/featured");
         if (response.ok) {
           const data = await response.json();
           setFeaturedProjects(data);

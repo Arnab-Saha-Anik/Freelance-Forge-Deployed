@@ -14,7 +14,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app//users/login", {
+      const response = await fetch("https://freelance-forge-deployed.vercel.app/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

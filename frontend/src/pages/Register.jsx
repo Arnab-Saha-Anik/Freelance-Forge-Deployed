@@ -43,7 +43,7 @@ const Register = () => {
     }
 
     try {
-      const emailCheckResponse = await axios.post("https://freelance-forge-deployed.vercel.app//users/check-email", { email });
+      const emailCheckResponse = await axios.post("https://freelance-forge-deployed.vercel.app/users/check-email", { email });
 
       if (emailCheckResponse.data.exists) {
         setErrorMessage("This email is already registered. Please use a different email.");
@@ -53,7 +53,7 @@ const Register = () => {
       alert("An OTP has been sent to your email (check spam if you don't find). Please verify to complete registration.");
       navigate("/verify-otp", { state: { email } });
 
-      await axios.post("https://freelance-forge-deployed.vercel.app//users/register", {
+      await axios.post("https://freelance-forge-deployed.vercel.app/users/register", {
         name: fullName,
         email,
         password,
