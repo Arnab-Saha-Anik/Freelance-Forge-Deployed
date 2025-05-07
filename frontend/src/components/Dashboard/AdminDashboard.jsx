@@ -43,7 +43,7 @@ const AdminDashboard = () => {
   const fetchUsers = async () => {
     setLoadingUsers(true);
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/users", {
+      const response = await fetch("http://localhost:10000/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
   const fetchProjects = async () => {
     setLoadingProjects(true);
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/projects", {
+      const response = await fetch("http://localhost:10000/projects", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -106,7 +106,7 @@ const AdminDashboard = () => {
 
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        const response = await fetch(`https://freelance-forge-deployed.vercel.app/users/admin/${userId}`, {
+        const response = await fetch(`http://localhost:10000/users/admin/${userId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -142,7 +142,7 @@ const AdminDashboard = () => {
 
     if (window.confirm("Are you sure you want to delete this project?")) {
       try {
-        const response = await fetch(`https://freelance-forge-deployed.vercel.app/projects/admin/${projectId}`, {
+        const response = await fetch(`http://localhost:10000/projects/admin/${projectId}`, {
           method: "DELETE",
         });
         if (response.ok) {
@@ -162,7 +162,7 @@ const AdminDashboard = () => {
 
   const fetchLearningMaterials = async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/learning-materials", {
+      const response = await fetch("http://localhost:10000/learning-materials", {
         headers: {
           Authorization: `Bearer ${token}`, // Pass the token in the Authorization header
         },
@@ -184,7 +184,7 @@ const AdminDashboard = () => {
   const handleAddMaterial = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/learning-materials", {
+      const response = await fetch("http://localhost:10000/learning-materials", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -212,7 +212,7 @@ const AdminDashboard = () => {
   const handleDeleteMaterial = async (materialId) => {
     if (window.confirm("Are you sure you want to delete this learning material?")) {
       try {
-        const response = await fetch(`https://freelance-forge-deployed.vercel.app/learning-materials/${materialId}`, {
+        const response = await fetch(`http://localhost:10000/learning-materials/${materialId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,

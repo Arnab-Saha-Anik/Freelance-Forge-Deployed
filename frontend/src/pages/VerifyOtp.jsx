@@ -30,7 +30,7 @@ const VerifyOTP = () => {
     }
 
     try {
-      const response = await axios.post("https://freelance-forge-deployed.vercel.app/users/verify-otp", { email, otp });
+      const response = await axios.post("http://localhost:10000/users/verify-otp", { email, otp });
       setSuccessMessage(response.data.message);
       setErrorMessage("");
       alert("Account verified successfully! Redirecting to login...");

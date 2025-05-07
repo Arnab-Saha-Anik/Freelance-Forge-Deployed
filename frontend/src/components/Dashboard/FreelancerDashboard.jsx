@@ -86,7 +86,7 @@ const FreelancerDashboard = () => {
 
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch("https://freelance-forge-deployed.vercel.app/users/me", {
+        const response = await fetch("http://localhost:10000/users/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -114,7 +114,7 @@ const FreelancerDashboard = () => {
       try {
         const userId = JSON.parse(atob(token.split(".")[1])).id; 
         
-        const response = await fetch(`https://freelance-forge-deployed.vercel.app/freelancers/check/${userId}`, {
+        const response = await fetch(`http://localhost:10000/freelancers/check/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -139,7 +139,7 @@ const FreelancerDashboard = () => {
 
   const fetchFreelancerStats = useCallback(async () => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/freelancers/stats/${userId}`, {
+      const response = await fetch(`http://localhost:10000/freelancers/stats/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -178,7 +178,7 @@ const FreelancerDashboard = () => {
 
   const fetchNotifications = useCallback(async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/notifications", {
+      const response = await fetch("http://localhost:10000/notifications", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -197,7 +197,7 @@ const FreelancerDashboard = () => {
 
   const fetchHireOffers = async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/direct-hire/freelancer", {
+      const response = await fetch("http://localhost:10000/direct-hire/freelancer", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -221,7 +221,7 @@ const FreelancerDashboard = () => {
   const checkUserExists = useCallback(async () => {
     try {
       console.log("Checking if user exists..."); 
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/users/check/${userId}`, {
+      const response = await fetch(`http://localhost:10000/users/check/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -287,8 +287,8 @@ const FreelancerDashboard = () => {
   
     try {
       const url = myBids[selectedProject._id]
-        ? `https://freelance-forge-deployed.vercel.app/bids/${myBids[selectedProject._id]._id}` // Update existing bid
-        : `https://freelance-forge-deployed.vercel.app/bids/${selectedProject._id}/bid`; // Create new bid
+        ? `http://localhost:10000/bids/${myBids[selectedProject._id]._id}` // Update existing bid
+        : `http://localhost:10000/bids/${selectedProject._id}/bid`; // Create new bid
   
       const method = myBids[selectedProject._id] ? "PUT" : "POST"; // Determine method
   
@@ -330,7 +330,7 @@ const FreelancerDashboard = () => {
 
   const handleDeleteNotification = async (notificationId) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/notifications/${notificationId}`, {
+      const response = await fetch(`http://localhost:10000/notifications/${notificationId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -349,7 +349,7 @@ const FreelancerDashboard = () => {
 
   const handleAcceptOffer = async (id) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/direct-hire/accept/${id}`, {
+      const response = await fetch(`http://localhost:10000/direct-hire/accept/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -372,7 +372,7 @@ const FreelancerDashboard = () => {
 
   const handleRejectOffer = async (id) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/direct-hire/reject/${id}`, {
+      const response = await fetch(`http://localhost:10000/direct-hire/reject/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -394,7 +394,7 @@ const FreelancerDashboard = () => {
 
   const fetchMyBid = useCallback(async (projectId) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/bids/${projectId}/my-bid`, {
+      const response = await fetch(`http://localhost:10000/bids/${projectId}/my-bid`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -429,7 +429,7 @@ const FreelancerDashboard = () => {
 
   const handleAcceptBid = async (bidId) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/bids/accept/${bidId}`, {
+      const response = await fetch(`http://localhost:10000/bids/accept/${bidId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -451,7 +451,7 @@ const FreelancerDashboard = () => {
   
   const handleRejectBid = async (bidId) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/bids/reject/${bidId}`, {
+      const response = await fetch(`http://localhost:10000/bids/reject/${bidId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -474,7 +474,7 @@ const FreelancerDashboard = () => {
 
   const fetchSelectedBids = useCallback(async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/bids/selected", {
+      const response = await fetch("http://localhost:10000/bids/selected", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -497,7 +497,7 @@ const FreelancerDashboard = () => {
 
   const fetchActivityLogs = useCallback(async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/activities", {
+      const response = await fetch("http://localhost:10000/activities", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -516,7 +516,7 @@ const FreelancerDashboard = () => {
 
   const fetchProjects = useCallback(async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/projects", {
+      const response = await fetch("http://localhost:10000/projects", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -547,7 +547,7 @@ const FreelancerDashboard = () => {
 
   const fetchMyReviews = useCallback(async () => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/reviews/received/${userId}`, {
+      const response = await fetch(`http://localhost:10000/reviews/received/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -569,7 +569,7 @@ const FreelancerDashboard = () => {
     
     try {
       // Get reviews for this client
-      const reviewsResponse = await fetch(`https://freelance-forge-deployed.vercel.app/reviews/received/${clientId}`, {
+      const reviewsResponse = await fetch(`http://localhost:10000/reviews/received/${clientId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -623,7 +623,7 @@ const FreelancerDashboard = () => {
 
   const updateCompletionPercentage = async (projectId, percentage) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/projects/update-completion/${projectId}`, {
+      const response = await fetch(`http://localhost:10000/projects/update-completion/${projectId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -660,7 +660,7 @@ const FreelancerDashboard = () => {
   
   const handleSubmitCompletionUrl = async (projectId, url) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/projects/submit-completion/${projectId}`, {
+      const response = await fetch(`http://localhost:10000/projects/submit-completion/${projectId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -763,7 +763,7 @@ const FreelancerDashboard = () => {
 
   const fetchLearningMaterials = useCallback(async () => {
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/learning-materials", {
+      const response = await fetch("http://localhost:10000/learning-materials", {
         headers: {
           Authorization: `Bearer ${token}`, // Pass the token if required
         },
@@ -788,14 +788,14 @@ const FreelancerDashboard = () => {
 
   const checkReviewStatus = useCallback(async (projectId) => {
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/reviews/check/${projectId}`, {
+      const response = await fetch(`http://localhost:10000/reviews/check/${projectId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
       setHasReviewed(prev => ({ ...prev, [projectId]: data.hasReviewed }));
       
       // Fetch existing reviews for this project
-      const reviewsResponse = await fetch(`https://freelance-forge-deployed.vercel.app/reviews/project/${projectId}`, {
+      const reviewsResponse = await fetch(`http://localhost:10000/reviews/project/${projectId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const reviewsData = await reviewsResponse.json();
@@ -841,7 +841,7 @@ const FreelancerDashboard = () => {
     });
 
     try {
-      const response = await fetch("https://freelance-forge-deployed.vercel.app/reviews", {
+      const response = await fetch("http://localhost:10000/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1328,7 +1328,7 @@ const FreelancerDashboard = () => {
                     onClick={async () => {
                       try {
                         const response = await fetch(
-                          `https://freelance-forge-deployed.vercel.app/payments/claim-money/${project._id}`,
+                          `http://localhost:10000/payments/claim-money/${project._id}`,
                           {
                             method: "POST",
                             headers: {
@@ -1447,7 +1447,7 @@ const FreelancerDashboard = () => {
             style={styles.rejectButton}
             onClick={async () => {
               try {
-                const response = await fetch(`https://freelance-forge-deployed.vercel.app/bids/${myBid._id}`, {
+                const response = await fetch(`http://localhost:10000/bids/${myBid._id}`, {
                   method: "DELETE",
                   headers: {
                     Authorization: `Bearer ${token}`,

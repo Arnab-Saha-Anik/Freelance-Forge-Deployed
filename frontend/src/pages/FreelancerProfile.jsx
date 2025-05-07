@@ -46,17 +46,17 @@ const FreelancerProfile = () => {
 
         // Fetch profile existence and freelancer/user information in parallel
         const [profileExistenceResponse, freelancerResponse, userResponse] = await Promise.all([
-          fetch(`https://freelance-forge-deployed.vercel.app/freelancers/check/${userId}`, {
+          fetch(`http://localhost:10000/freelancers/check/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }),
-          fetch(`https://freelance-forge-deployed.vercel.app/freelancers/${userId}`, {
+          fetch(`http://localhost:10000/freelancers/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }),
-          fetch(`https://freelance-forge-deployed.vercel.app/users/me`, {
+          fetch(`http://localhost:10000/users/me`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -122,7 +122,7 @@ const FreelancerProfile = () => {
     const checkUserExists = async () => {
       try {
         console.log("Checking if user exists..."); // Debugging log
-        const response = await fetch(`https://freelance-forge-deployed.vercel.app/users/check/${userId}`, {
+        const response = await fetch(`http://localhost:10000/users/check/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -170,7 +170,7 @@ const FreelancerProfile = () => {
     try {
       const userId = JSON.parse(atob(token.split(".")[1])).id;
 
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/freelancers/${userId}`, {
+      const response = await fetch(`http://localhost:10000/freelancers/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -214,7 +214,7 @@ const FreelancerProfile = () => {
         experience: freelancerInfo.experience,
       }); // Log the request data for debugging
 
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/freelancers`, {
+      const response = await fetch(`http://localhost:10000/freelancers`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -246,7 +246,7 @@ const FreelancerProfile = () => {
   const handleUserInfoSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/users/update`, {
+      const response = await fetch(`http://localhost:10000/users/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -291,7 +291,7 @@ const FreelancerProfile = () => {
 
     // Validate email and password
     try {
-      const validateResponse = await fetch(`https://freelance-forge-deployed.vercel.app/users/validate`, {
+      const validateResponse = await fetch(`http://localhost:10000/users/validate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -326,7 +326,7 @@ const FreelancerProfile = () => {
 
     // Proceed with account deletion
     try {
-      const response = await fetch(`https://freelance-forge-deployed.vercel.app/users/delete`, {
+      const response = await fetch(`http://localhost:10000/users/delete`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
